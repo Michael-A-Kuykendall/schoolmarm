@@ -8,6 +8,12 @@
   <p>
     <em>Zero dependencies. No unsafe code. Pure Rust.</em>
   </p>
+  <p>
+    <a href="https://github.com/Michael-A-Kuykendall/schoolmarm/actions"><img src="https://github.com/Michael-A-Kuykendall/schoolmarm/actions/workflows/ci.yml/badge.svg" alt="CI Status"></a>
+    <a href="https://crates.io/crates/schoolmarm"><img src="https://img.shields.io/crates/v/schoolmarm.svg" alt="Crates.io Version"></a>
+    <a href="https://docs.rs/schoolmarm"><img src="https://docs.rs/schoolmarm/badge.svg" alt="Documentation"></a>
+    <a href="#license"><img src="https://img.shields.io/crates/l/schoolmarm.svg" alt="License"></a>
+  </p>
 </div>
 
 ## What It Does
