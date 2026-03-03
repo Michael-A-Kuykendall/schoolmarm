@@ -1,0 +1,14 @@
+[package]
+name = "schoolmarm"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+publish = false
+description = "GBNF grammar-constrained decoding for LLM inference, ported from llama.cpp"
+keywords = ["llm", "grammar", "gbnf", "inference", "sampling"]
+categories = ["text-processing", "parsing"]
+
+[dependencies]
+# Zero dependencies. This is a leaf crate.
+
+[workspace]
