@@ -9,6 +9,7 @@ const MAX_RECURSION_DEPTH: usize = 512;
 pub struct Grammar {
     pub(crate) rules: Rules,
     pub(crate) root_index: usize,
+    #[allow(dead_code)]
     pub(crate) symbol_names: Vec<String>,
 }
 
@@ -437,10 +438,8 @@ fn detect_lr_recursive(
             if !may_be_empty[ref_idx] {
                 recurse_into_nonterminal = false;
             }
-        } else if elem.is_end_of_sequence() {
-            recurse_into_nonterminal = true;
         } else {
-            recurse_into_nonterminal = false;
+            recurse_into_nonterminal = elem.is_end_of_sequence();
         }
     }
 
