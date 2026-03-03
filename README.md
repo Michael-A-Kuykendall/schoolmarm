@@ -1,8 +1,14 @@
-# schoolmarm
+# SchoolMarm
 
-GBNF grammar-constrained decoding for LLM inference, ported from [llama.cpp](https://github.com/ggml-org/llama.cpp).
-
-**Zero dependencies. No unsafe. Pure Rust.**
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Michael-A-Kuykendall/schoolmarm/master/assets/schoolmarm-logo.png" width="300" alt="SchoolMarm Logo" />
+  <p>
+    <strong>Production-grade GBNF grammar-constrained decoding for LLMs.</strong>
+  </p>
+  <p>
+    <em>Zero dependencies. No unsafe code. Pure Rust.</em>
+  </p>
+</div>
 
 ## What It Does
 
@@ -10,6 +16,8 @@ Given a GBNF grammar string and a vocabulary of token strings, this crate produc
 bitmasks of allowed tokens at each autoregressive generation step. This constrains
 a language model to only generate output that matches the grammar — valid JSON, valid
 code, structured data, or any other formally-defined format.
+
+This implementation is derived from the battle-tested grammar engine in [llama.cpp](https://github.com/ggml-org/llama.cpp), ensuring full GBNF compatibility while providing a safe, idiomatic Rust API.
 
 ## Usage
 
