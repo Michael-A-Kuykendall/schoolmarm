@@ -108,12 +108,7 @@ fn test_special_chars_dot() {
         "special characters (dot)",
         r#"root ::= ... "abc" ..."#,
         &["abcabcabc", "aaaabcccc"],
-        &[
-            "aaabcccc",
-            "aaaaabcccc",
-            "aaaabccc",
-            "aaaabccccc",
-        ],
+        &["aaabcccc", "aaaaabcccc", "aaaabccc", "aaaabccccc"],
     );
 }
 
@@ -196,12 +191,7 @@ fn test_range_repetition() {
         "range repetition",
         r#"root ::= ("0x" [A-F0-9]{2} " "?){3,5}"#,
         &["0xFF 0x12 0xAB", "0xFF 0x12 0xAB 0x00 0x00"],
-        &[
-            "",
-            "0xFF",
-            "0xFF 0x12",
-            "0xFF 0x12 0xAB 0x00 0x00 0x00",
-        ],
+        &["", "0xFF", "0xFF 0x12", "0xFF 0x12 0xAB 0x00 0x00 0x00"],
     );
 }
 

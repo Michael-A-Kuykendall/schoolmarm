@@ -61,14 +61,9 @@ impl<'a> Parser<'a> {
     fn parse_space(&self, mut pos: usize, newline_ok: bool) -> usize {
         while pos < self.src.len() {
             let c = self.src[pos];
-            if c == b' ' || c == b'\t' || c == b'#'
-                || (newline_ok && (c == b'\r' || c == b'\n'))
-            {
+            if c == b' ' || c == b'\t' || c == b'#' || (newline_ok && (c == b'\r' || c == b'\n')) {
                 if c == b'#' {
-                    while pos < self.src.len()
-                        && self.src[pos] != b'\r'
-                        && self.src[pos] != b'\n'
-                    {
+                    while pos < self.src.len() && self.src[pos] != b'\r' && self.src[pos] != b'\n' {
                         pos += 1;
                     }
                 } else {
@@ -94,10 +89,8 @@ impl<'a> Parser<'a> {
                 pos
             )));
         }
-        let name =
-            std::str::from_utf8(&self.src[start..p]).map_err(|_| {
-                GrammarError::ParseError("invalid UTF-8 in rule name".into())
-            })?;
+        let name = std::str::from_utf8(&self.src[start..p])
+            .map_err(|_| GrammarError::ParseError("invalid UTF-8 in rule name".into()))?;
         Ok((name.to_string(), p))
     }
 
@@ -153,9 +146,7 @@ impl<'a> Parser<'a> {
     /// Parse a single character (with escape handling), return (codepoint, new_pos).
     fn parse_char(&self, pos: usize) -> Result<(u32, usize), GrammarError> {
         if pos >= self.src.len() {
-            return Err(GrammarError::ParseError(
-                "unexpected end of input".into(),
-            ));
+            return Err(GrammarError::ParseError("unexpected end of input".into()));
         }
         if self.src[pos] == b'\\' {
             if pos + 1 >= self.src.len() {
@@ -251,7 +242,8 @@ impl<'a> Parser<'a> {
                         start_type
                     };
                     rule.push(Element::new(etype, cp));
-                    if p < self.src.len() && self.src[p] == b'-'
+                    if p < self.src.len()
+                        && self.src[p] == b'-'
                         && p + 1 < self.src.len()
                         && self.src[p + 1] != b']'
                     {
@@ -391,7 +383,11 @@ impl<'a> Parser<'a> {
             let mut rec_rule: Vec<Element> = prev_rule.clone();
             let rec_rule_id = self.generate_symbol_id(rule_name);
             if i > 0 || no_max {
-                let ref_id = if no_max { rec_rule_id } else { last_rec_rule_id };
+                let ref_id = if no_max {
+                    rec_rule_id
+                } else {
+                    last_rec_rule_id
+                };
                 rec_rule.push(Element::rule_ref(ref_id));
             }
             rec_rule.push(Element::alt());
@@ -508,9 +504,7 @@ fn is_word_char(c: u8) -> bool {
 /// Decode a single UTF-8 codepoint starting at `pos` in `src`.
 fn decode_utf8_at(src: &[u8], pos: usize) -> Result<(u32, usize), GrammarError> {
     if pos >= src.len() {
-        return Err(GrammarError::ParseError(
-            "unexpected end of input".into(),
-        ));
+        return Err(GrammarError::ParseError("unexpected end of input".into()));
     }
     let first = src[pos];
     let (len, mask): (usize, u8) = if first < 0x80 {
@@ -525,9 +519,7 @@ fn decode_utf8_at(src: &[u8], pos: usize) -> Result<(u32, usize), GrammarError> 
     let mut value = (first & mask) as u32;
     for i in 1..len {
         if pos + i >= src.len() {
-            return Err(GrammarError::ParseError(
-                "truncated UTF-8 sequence".into(),
-            ));
+            return Err(GrammarError::ParseError("truncated UTF-8 sequence".into()));
         }
         value = (value << 6) | (src[pos + i] & 0x3F) as u32;
     }
