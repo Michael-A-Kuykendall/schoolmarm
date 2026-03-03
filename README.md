@@ -45,7 +45,7 @@ assert!(state.is_accepting());
 The typical integration loop:
 
 ```rust
-use gbnf::{Grammar, GrammarState};
+use schoolmarm::{Grammar, GrammarState};
 
 fn generate(grammar_str: &str, vocab: &[&str]) -> Vec<usize> {
     let grammar = Grammar::new(grammar_str).unwrap();
