@@ -1,9 +1,5 @@
 # SchoolMarm
 
-[![Trans rights](https://pride-badges.pony.workers.dev/static/v1?label=trans%20rights&stripeWidth=6&stripeColors=5BCEFA,F5A9B8,FFFFFF,F5A9B8,5BCEFA)](https://translifeline.org/)
-[![LGBTQ+ friendly](https://pride-badges.pony.workers.dev/static/v1?label=lgbtq%2B%20friendly&stripeWidth=6&stripeColors=E40303,FF8C00,FFED00,008026,24408E,732982)](https://www.thetrevorproject.org/)
-
-
 <div align="center">
   <img src="https://raw.githubusercontent.com/Michael-A-Kuykendall/schoolmarm/master/assets/schoolmarm-logo.png" width="300" alt="SchoolMarm Logo" />
   <p>
@@ -14,7 +10,7 @@
   </p>
   <p>
     <a href="https://github.com/Michael-A-Kuykendall/schoolmarm/actions"><img src="https://github.com/Michael-A-Kuykendall/schoolmarm/actions/workflows/ci.yml/badge.svg" alt="CI Status"></a>
-    <a href="https://crates.io/crates/schoolmarm"><img src="https://img.shields.io/crates/v/schoolmarm.svg" alt="Crates.io Version"></a>
+    <a href="https://crates.io/crates/schoolmarm"><img src="https://img.shields.io/crates/v/schoolmarm.svg" alt="Crates.io Version"></a> <a href="https://translifeline.org/"><img src="https://pride-badges.pony.workers.dev/static/v1?label=trans%20rights&stripeWidth=6&stripeColors=5BCEFA,F5A9B8,FFFFFF,F5A9B8,5BCEFA" alt="trans rights"></a> <a href="https://www.thetrevorproject.org/"><img src="https://pride-badges.pony.workers.dev/static/v1?label=lgbtq%2B%20friendly&stripeWidth=6&stripeColors=E40303,FF8C00,FFED00,008026,24408E,732982" alt="lgbtq+ friendly"></a>
     <a href="https://docs.rs/schoolmarm"><img src="https://docs.rs/schoolmarm/badge.svg" alt="Documentation"></a>
     <a href="#license"><img src="https://img.shields.io/crates/l/schoolmarm.svg" alt="License"></a>
   </p>
